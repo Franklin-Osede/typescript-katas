@@ -514,4 +514,3 @@ After completing this program, you should be able to:
 
 ---
 
-**Ready to master advanced TypeScript programming? Start with `npm run dev` and begin your journey to programming excellence!**
