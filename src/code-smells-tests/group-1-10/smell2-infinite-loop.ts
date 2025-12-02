@@ -11,41 +11,24 @@ export function findIndexInSortedArray(arr: number[], target: number): number {
   
   // TODO: Fix infinite loop
   // This will cause infinite loop if target is not found
-  while (left <= right) {
+  while (left < right) { // 🐛 BUG 1: Should be left <= right
     const mid = Math.floor((left + right) / 2);
     
     if (arr[mid] === target) {
       return mid;
     } else if (arr[mid] < target) {
-      left = mid; // This should be mid + 1
+      left = mid; // 🐛 BUG 2: This should be mid + 1
     } else {
-      right = mid; // This should be mid - 1
+      right = mid; // 🐛 BUG 3: This should be mid - 1
     }
   }
   
   return -1;
 }
 
-export function findIndexInSortedArrayBuggy(arr: number[], target: number): number {
-  let left = 0;
-  let right = arr.length - 1;
-  
-  // TODO: Fix infinite loop
-  // This will cause infinite loop if target is not found
-  while (left < right) {
-    const mid = Math.floor((left + right) / 2);
-    
-    if (arr[mid] === target) {
-      return mid;
-    } else if (arr[mid] < target) {
-      left = mid; // This should be mid + 1
-    } else {
-      right = mid; // This should be mid - 1
-    }
-  }
-  
-  return -1;
-}
+
+
+
 
 /**
  * DEBUGGING TASK:

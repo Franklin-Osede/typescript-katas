@@ -16,32 +16,33 @@ export class UserService {
     return this.users.get(id) || null;
   }
 
-  getUserName(id: number): string {
+  // 🐛 BUG 1: Nested property access without null checks
+  getUserTheme(id: number): string {
     const user = this.getUser(id);
-    // TODO: Fix null pointer exception
-    // This will throw if user is null
-    if (!user) return '';
-    return user.name;
+    return user.settings.theme; // Will crash if user or settings is null
   }
 
-  getUserEmail(id: number): string {
+  // 🐛 BUG 2: Method chaining without null checks
+  getUserDisplayName(id: number): string {
     const user = this.getUser(id);
-    // TODO: Fix null pointer exception
-    // This will throw if user is null
-    if (!user) return '';
-    return user.email;
+    return user.profile.displayName; // Will crash if user or profile is null
   }
 
-  updateUser(id: number, updates: Partial<User>): boolean {
+  // 🐛 BUG 3: Array method with potential null elements
+  getUsersByRole(role: string): User[] {
+    const allUsers = Array.from(this.users.values());
+    return allUsers.filter(user => user.role === role); // Will crash if user is null
+  }
+
+  // 🐛 BUG 4: Complex object construction without null checks
+  getUserProfile(id: number): UserProfile | null {
     const user = this.getUser(id);
-    if (!user) return false;
-    
-    // TODO: Fix potential null pointer
-    // What if updates.name is undefined?
-    if (updates.name !== undefined) user.name = updates.name;
-    if (updates.email !== undefined) user.email = updates.email;
-    
-    return true;
+    return {
+      name: user.name,                    // Will crash if user is null
+      email: user.email,                  // Will crash if user is null
+      settings: user.settings,            // Will crash if user is null
+      preferences: user.settings.theme     // Will crash if user or settings is null
+    };
   }
 }
 
@@ -49,6 +50,26 @@ interface User {
   id: number;
   name: string;
   email: string;
+  role?: string;
+  settings?: UserSettings;
+  profile?: UserProfile;
+}
+
+interface UserSettings {
+  theme: string;
+  notifications: boolean;
+}
+
+interface UserProfile {
+  displayName: string;
+  avatar: string;
+}
+
+interface UserProfile {
+  name: string;
+  email: string;
+  settings: UserSettings;
+  preferences: string;
 }
 
 /**

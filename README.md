@@ -1,163 +1,268 @@
-# TypeScript Katas - Advanced Programming Challenges
+# TypeScript Katas – Programming Practice Repository
 
-## 🎯 Overview
+Comprehensive TypeScript programming practice system featuring 100+ code smells, debugging scenarios, algorithmic challenges, and interview preparation exercises.
 
-TypeScript Katas is a comprehensive programming challenge system designed for developers who want to master advanced TypeScript concepts. It provides 100+ real-world code smells, debugging scenarios, and algorithmic challenges that enhance your programming skills through hands-on practice and collaborative coding sessions.
+**TypeScript** **Jest** **Node.js** **Algorithms** **Debugging**
 
-## 🏗️ Architecture
+## Table of Contents
 
-The system uses a structured approach with the following key components:
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Development](#development)
+- [Testing](#testing)
+- [Code Smells Practice](#code-smells-practice)
+- [Exercises](#exercises)
+- [Debugging](#debugging)
+- [Contributing](#contributing)
+- [License](#license)
 
-**Code Smells Detection**: 100+ common bugs organized in 10 groups (1-10, 11-20, ..., 91-100)
-**Test-Driven Development**: Empty test files for you to write comprehensive test suites
-**Debugging Practice**: Real-world scenarios with memory leaks, race conditions, and performance issues
-**Algorithm Challenges**: From basic arrays to advanced data structures and complex algorithms
-**Mock Interview Scenarios**: Simulated interview problems with time constraints
+## Overview
 
-## 🚀 Key Features
+TypeScript Katas is a production-ready programming practice repository designed for developers preparing for technical interviews and seeking to master advanced TypeScript concepts. The system provides hands-on experience with real-world bugs, algorithmic challenges, and debugging scenarios through structured exercises and test-driven development.
 
-### Real-world Code Smells
+### Key Features
+
+- **100+ Code Smells**: Common bugs organized in 10 groups (1-10, 11-20, ..., 91-100)
+- **Test-Driven Development**: Empty test files for comprehensive test suite implementation
+- **Debugging Practice**: Real-world scenarios including memory leaks, race conditions, and performance issues
+- **Algorithm Challenges**: From basic arrays to advanced data structures and complex algorithms
+- **Mock Interview Scenarios**: Simulated interview problems with time constraints
+- **Bilingual Support**: Exercises available in both English and Spanish
+- **Type Safety**: Full TypeScript strict mode with comprehensive type definitions
+
+### Code Smells Categories
+
 - **Memory Leaks**: Event listeners, timers, closures, and circular references
 - **Race Conditions**: Concurrent access, async/await issues, and promise mishandling
 - **Performance Issues**: Infinite loops, stack overflow, and inefficient algorithms
 - **Type Safety**: Null pointers, undefined behavior, and type coercion problems
 - **Prototype Pollution**: Global object modifications and prototype misuse
+- **Async Programming**: Promise chains, async/await patterns, and error handling
 
-### Interview-Ready Practice
-- **Pair Programming**: Simulated collaborative coding sessions
-- **Live Debugging**: Console.log, breakpoints, and step-through debugging
-- **Time Pressure**: Realistic interview time constraints
-- **Code Review**: Best practices and clean code principles
-- **System Design**: Scalable architecture and design patterns
+## Architecture
 
-### Comprehensive Coverage
-- **Arrays & Strings**: Manipulation, searching, and optimization
-- **Objects & Data Structures**: Hash maps, trees, graphs, and heaps
-- **Algorithms**: Sorting, searching, dynamic programming, and recursion
-- **Async Programming**: Promises, async/await, and error handling
-- **Testing**: Unit tests, integration tests, and edge cases
+### High-Level Architecture
 
-## 🛠️ Technology Stack
-
-- **Language**: TypeScript 5.x
-- **Testing**: Jest with comprehensive test coverage
-- **Build Tool**: npm with TypeScript compiler
-- **Code Quality**: ESLint and Prettier ready
-- **Debugging**: Built-in VS Code debugging support
-- **Documentation**: JSDoc comments and inline examples
-
-## 📦 Prerequisites
-
-- Node.js 18+ or higher
-- npm 9+ or yarn
-- TypeScript 5.x
-- VS Code (recommended) with TypeScript extensions
-
-## 🚀 Quick Start
-
-### 1. Install Dependencies
-```bash
-npm install
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    TypeScript Katas                          │
+│                                                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│  │ Code Smells  │  │  Exercises   │  │  Debugging   │      │
+│  │  (100+)      │  │  (Arrays,    │  │  Scenarios   │      │
+│  │              │  │   Strings,   │  │              │      │
+│  │              │  │   Objects)   │  │              │      │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘      │
+│         │                 │                  │              │
+│  ┌──────┴─────────────────┴──────────────────┴──────┐      │
+│  │            Test Infrastructure (Jest)             │      │
+│  └──────────────────────────────────────────────────┘      │
+│                                                              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│  │  Algorithms  │  │ Data Struct. │  │ Mock Interview│      │
+│  │              │  │              │  │              │      │
+│  └──────────────┘  └──────────────┘  └──────────────┘      │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-### 2. Start Development
+### Technology Stack
+
+**Language & Runtime:**
+- TypeScript 5.x with strict mode
+- Node.js 18+
+- ES2020 target
+
+**Testing & Quality:**
+- Jest 29+ with ts-jest
+- ESLint for code quality
+- Prettier for code formatting
+
+**Build Tools:**
+- TypeScript Compiler (tsc)
+- npm scripts for automation
+- Source maps for debugging
+
+## Project Structure
+
+```
+typescript-katas/
+├── src/
+│   ├── code-smells/              # 100+ code smell implementations
+│   │   ├── smell1-memory-leak.ts
+│   │   ├── smell2-infinite-loop.ts
+│   │   └── ... (100 total)
+│   │
+│   ├── code-smells-tests/        # Test files organized by groups
+│   │   ├── group-1-10/          # Basic bugs (memory leaks, infinite loops)
+│   │   │   ├── smell1-memory-leak.ts
+│   │   │   ├── smell2-infinite-loop.ts
+│   │   │   └── ... (10 per group)
+│   │   ├── group-11-20/         # Intermediate bugs (race conditions, mutations)
+│   │   ├── group-21-30/         # Advanced issues (performance, async)
+│   │   ├── group-31-40/         # Complex bugs (scope, type errors)
+│   │   ├── group-41-50/         # Prototype misuse scenarios
+│   │   ├── group-51-60/         # Method misuse patterns
+│   │   ├── group-61-70/         # Array/object prototype issues
+│   │   ├── group-71-80/         # Function prototype problems
+│   │   ├── group-81-90/         # String prototype issues
+│   │   └── group-91-100/        # Number/boolean prototype problems
+│   │
+│   ├── exercises/               # Algorithm and data structure challenges
+│   │   ├── arrays.ts           # Array manipulation exercises
+│   │   ├── strings.ts          # String processing challenges
+│   │   ├── objects.ts          # Object-oriented programming
+│   │   ├── data-structures.ts  # Hash maps, trees, graphs
+│   │   ├── algorithms.ts       # Sorting, searching, DP
+│   │   ├── advanced.ts         # Complex algorithmic problems
+│   │   └── mock-interview.ts   # Interview simulation exercises
+│   │
+│   ├── ejercicios/             # Spanish version of exercises
+│   │   ├── arrays.ts
+│   │   ├── strings.ts
+│   │   └── ... (mirrors exercises/)
+│   │
+│   ├── debugging/              # Debugging scenarios and techniques
+│   │   ├── debug-arrays.ts
+│   │   ├── debug-strings.ts
+│   │   └── debug-objetos.ts
+│   │
+│   ├── practice/               # Practice utilities
+│   │   └── code-smells-practice.ts
+│   │
+│   ├── practice-exercises/     # Empty files for implementations
+│   │   ├── arrays/
+│   │   └── strings/
+│   │
+│   ├── utils/                  # Helper functions and utilities
+│   │   ├── helpers.ts
+│   │   ├── logger.ts
+│   │   └── mock-data.ts
+│   │
+│   ├── tests/                  # Test files
+│   │   └── arrays.test.ts
+│   │
+│   └── index.ts                # Main entry point
+│
+├── dist/                       # Compiled JavaScript output
+├── node_modules/               # Dependencies
+├── jest.config.js              # Jest configuration
+├── tsconfig.json               # TypeScript configuration
+├── package.json                # Project dependencies and scripts
+└── README.md                   # This file
+```
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js**: v18 or higher
+- **npm**: v9 or higher (or yarn)
+- **TypeScript**: v5.x (installed as dependency)
+- **Git**: For version control
+- **VS Code** (recommended): With TypeScript extensions for optimal development experience
+
+### Installation
+
 ```bash
-# Run the main application
-npm run dev
+# Clone the repository
+git clone <repository-url>
+cd typescript-katas
 
-# Run tests
-npm test
+# Install dependencies
+npm install
 
-# Build for production
+# Verify installation
 npm run build
 ```
 
-### 3. Practice Code Smells
-The application will automatically:
+### Environment Setup
 
+No environment variables are required for basic usage. The project is configured to work out of the box.
+
+### Quick Start
+
+```bash
+# Run the main application (executes code smells practice)
+npm run dev
+
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Build for production
+npm run build
+
+# Lint code
+npm run lint
+
+# Format code
+npm run format
+```
+
+## Development
+
+### Running Code Smells Practice
+
+The main entry point executes code smells practice automatically:
+
+```bash
+npm run dev
+```
+
+This will:
 - Load all 100 code smells organized by difficulty
 - Display debugging scenarios in the console
-- Provide empty test files for you to implement
+- Provide empty test files for implementation
 - Show progress through different challenge groups
 
-### 4. Manual Testing
-```bash
-# Run specific test groups
-npm test -- --testPathPattern="group-1-10"
-npm test -- --testPathPattern="group-11-20"
+### Working on Code Smells
 
-# Run with coverage
-npm test -- --coverage
+Each code smell file contains:
+- A buggy implementation
+- TODO comments indicating issues
+- Debugging hints
+- Expected behavior documentation
 
-# Debug specific code smell
-npm run dev -- --debug smell1-memory-leak
-```
+**Example workflow:**
 
-## 📁 Project Structure
+1. Open a code smell file (e.g., `src/code-smells-tests/group-1-10/smell1-memory-leak.ts`)
+2. Identify the bug using debugging techniques
+3. Write tests in the corresponding test file
+4. Fix the implementation
+5. Verify with tests
 
-```
-src/
-├── code-smells-tests/           # 100+ code smells organized in groups
-│   ├── group-1-10/             # Basic bugs (memory leaks, infinite loops)
-│   ├── group-11-20/            # Intermediate bugs (race conditions, mutations)
-│   ├── group-21-30/            # Advanced issues (performance, async)
-│   ├── group-31-40/            # Complex bugs (scope, type errors)
-│   ├── group-41-50/            # Prototype misuse scenarios
-│   ├── group-51-60/            # Method misuse patterns
-│   ├── group-61-70/            # Array/object prototype issues
-│   ├── group-71-80/            # Function prototype problems
-│   ├── group-81-90/            # String prototype issues
-│   └── group-91-100/           # Number/boolean prototype problems
-├── exercises/                  # Algorithm and data structure challenges
-│   ├── arrays.ts              # Array manipulation exercises
-│   ├── strings.ts             # String processing challenges
-│   ├── objects.ts             # Object-oriented programming
-│   ├── data-structures.ts     # Hash maps, trees, graphs
-│   ├── algorithms.ts           # Sorting, searching, DP
-│   └── advanced.ts             # Complex algorithmic problems
-├── practice-exercises/         # Empty files for your implementations
-├── debugging/                  # Debugging scenarios and techniques
-└── utils/                      # Helper functions and mock data
-```
+### Working on Exercises
 
-## 🎯 Learning Strategy
+Exercises are located in `src/exercises/` and `src/ejercicios/` (Spanish version).
 
-### Week 1: Foundation
-- **Days 1-2**: Groups 1-20 (Basic code smells and debugging)
-- **Days 3-4**: Groups 21-40 (Intermediate problems and algorithms)
-- **Days 5-7**: Groups 41-60 (Advanced scenarios and system design)
+**Example: Array Exercises**
 
-### Week 2: Mastery
-- **Days 8-10**: Groups 61-80 (Complex debugging and optimization)
-- **Days 11-12**: Groups 81-100 (Expert-level challenges)
-- **Days 13-14**: Advanced challenges and final review
-
-### Daily Practice Routine
-1. **Morning**: 2-3 code smells (30 minutes)
-2. **Afternoon**: 1 algorithm challenge (45 minutes)
-3. **Evening**: Write tests and debug (30 minutes)
-4. **Review**: Document learnings and patterns (15 minutes)
-
-## 🔧 Advanced Usage
-
-### Custom Test Configuration
 ```typescript
-// jest.config.js
-module.exports = {
-  testEnvironment: 'node',
-  preset: 'ts-jest',
-  testMatch: ['**/tests/**/*.test.ts'],
-  collectCoverageFrom: [
-    'src/**/*.ts',
-    '!src/**/*.test.ts',
-    '!src/**/*.d.ts'
-  ]
-};
+// src/exercises/arrays.ts
+export function sumArray(numbers: number[]): number {
+  // TODO: Implement here
+  return 0;
+}
 ```
+
+**Development workflow:**
+
+1. Read the exercise description
+2. Implement the function
+3. Test with console.log for debugging
+4. Consider edge cases (empty arrays, single element, etc.)
+5. Optimize for time/space complexity
+6. Write unit tests
 
 ### Debugging Setup
+
+For VS Code debugging, create `.vscode/launch.json`:
+
 ```json
-// .vscode/launch.json
 {
   "version": "0.2.0",
   "configurations": [
@@ -167,59 +272,246 @@ module.exports = {
       "request": "launch",
       "program": "${workspaceFolder}/src/index.ts",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-      "runtimeArgs": ["-r", "ts-node/register"]
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "sourceMaps": true
     }
   ]
 }
 ```
 
-## 📊 Progress Tracking
+### Code Organization
 
-### Code Smells Mastery
-- ✅ **Group 1-10**: Basic debugging (memory leaks, infinite loops)
-- ✅ **Group 11-20**: Intermediate issues (race conditions, mutations)
-- ✅ **Group 21-30**: Advanced problems (performance, async/await)
-- ✅ **Group 31-40**: Complex bugs (scope issues, type errors)
-- ✅ **Group 41-50**: Prototype misuse scenarios
-- ✅ **Group 51-60**: Method misuse patterns
-- ✅ **Group 61-70**: Array/object prototype issues
-- ✅ **Group 71-80**: Function prototype problems
-- ✅ **Group 81-90**: String prototype issues
-- ✅ **Group 91-100**: Number/boolean prototype problems
+- **Domain Logic**: Business rules and algorithms in exercise files
+- **Test Files**: Comprehensive test suites for each exercise
+- **Utilities**: Reusable helper functions in `utils/`
+- **Practice**: Automated practice runners in `practice/`
 
-### Skills Assessment
-- **Debugging**: Console.log, breakpoints, step-through
-- **Testing**: Unit tests, edge cases, error handling
-- **Algorithms**: Time/space complexity, optimization
-- **System Design**: Architecture, scalability, patterns
-- **Code Quality**: Clean code, best practices, refactoring
+## Testing
 
-## 🤝 Contributing
+### Test Configuration
 
-This project is designed for personal programming skill development. Feel free to:
+Tests are configured via `jest.config.js`:
+- Test environment: Node.js
+- TypeScript support via ts-jest
+- Coverage collection enabled
+- Test matching: `**/*.test.ts` and `**/*.spec.ts`
 
-- Add new code smells and scenarios
-- Improve existing test cases
-- Share debugging techniques
-- Document solutions and patterns
+### Running Tests
 
-## 📚 Resources
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run specific test group
+npm test -- --testPathPattern="group-1-10"
+
+# Run with coverage
+npm test -- --coverage
+
+# Run specific test file
+npm test -- src/tests/arrays.test.ts
+```
+
+### Writing Tests
+
+Test files should be placed alongside source files or in the `tests/` directory:
+
+```typescript
+// src/tests/arrays.test.ts
+import { sumArray } from '../exercises/arrays';
+
+describe('sumArray', () => {
+  it('should sum all elements', () => {
+    expect(sumArray([1, 2, 3])).toBe(6);
+  });
+
+  it('should return 0 for empty array', () => {
+    expect(sumArray([])).toBe(0);
+  });
+});
+```
+
+### Test Coverage
+
+Current coverage targets:
+- **Statements**: 80%+
+- **Branches**: 75%+
+- **Functions**: 80%+
+- **Lines**: 80%+
+
+## Code Smells Practice
+
+### Group Organization
+
+Code smells are organized into 10 groups of 10 exercises each:
+
+- **Groups 1-10**: Basic debugging (memory leaks, infinite loops, null pointers)
+- **Groups 11-20**: Intermediate issues (race conditions, mutations, type errors)
+- **Groups 21-30**: Advanced problems (performance, async/await, recursion)
+- **Groups 31-40**: Complex bugs (scope issues, type coercion, hoisting)
+- **Groups 41-50**: Prototype misuse scenarios
+- **Groups 51-60**: Method misuse patterns
+- **Groups 61-70**: Array/object prototype issues
+- **Groups 71-80**: Function prototype problems
+- **Groups 81-90**: String prototype issues
+- **Groups 91-100**: Number/boolean prototype problems
+
+### Practice Strategy
+
+**Week 1: Foundation**
+- Days 1-2: Groups 1-20 (Basic code smells and debugging)
+- Days 3-4: Groups 21-40 (Intermediate problems and algorithms)
+- Days 5-7: Groups 41-60 (Advanced scenarios and system design)
+
+**Week 2: Mastery**
+- Days 8-10: Groups 61-80 (Complex debugging and optimization)
+- Days 11-12: Groups 81-100 (Expert-level challenges)
+- Days 13-14: Advanced challenges and final review
+
+**Daily Practice Routine:**
+1. Morning: 2-3 code smells (30 minutes)
+2. Afternoon: 1 algorithm challenge (45 minutes)
+3. Evening: Write tests and debug (30 minutes)
+4. Review: Document learnings and patterns (15 minutes)
+
+## Exercises
+
+### Available Exercise Categories
+
+**Arrays** (`src/exercises/arrays.ts`)
+- Sum, max, min, average
+- Filtering and mapping
+- Searching and sorting
+- Array manipulation
+
+**Strings** (`src/exercises/strings.ts`)
+- String manipulation
+- Pattern matching
+- Parsing and validation
+- Encoding/decoding
+
+**Objects** (`src/exercises/objects.ts`)
+- Object manipulation
+- Property access and modification
+- Deep cloning and merging
+- Object-oriented patterns
+
+**Data Structures** (`src/exercises/data-structures.ts`)
+- Hash maps and sets
+- Trees and graphs
+- Stacks and queues
+- Heaps and priority queues
+
+**Algorithms** (`src/exercises/algorithms.ts`)
+- Sorting algorithms
+- Searching algorithms
+- Dynamic programming
+- Recursion and backtracking
+
+**Advanced** (`src/exercises/advanced.ts`)
+- Complex algorithmic problems
+- System design patterns
+- Optimization challenges
+- Performance tuning
+
+**Mock Interview** (`src/exercises/mock-interview.ts`)
+- Interview simulation exercises
+- Time-constrained problems
+- Pair programming scenarios
+- Code review exercises
+
+## Debugging
+
+### Debugging Scenarios
+
+The `src/debugging/` directory contains real-world debugging scenarios:
+
+- **debug-arrays.ts**: Array manipulation bugs
+- **debug-strings.ts**: String processing issues
+- **debug-objetos.ts**: Object-related problems
+
+### Debugging Techniques
+
+1. **Console Logging**: Strategic console.log statements
+2. **Breakpoints**: VS Code debugger integration
+3. **Step-through**: Line-by-line execution
+4. **Watch Expressions**: Monitor variable values
+5. **Call Stack**: Trace execution flow
+
+### Common Debugging Patterns
+
+- Memory leak detection
+- Race condition identification
+- Performance bottleneck analysis
+- Type error resolution
+- Async/await debugging
+
+## Contributing
+
+This project is designed for personal programming skill development. Contributions are welcome:
+
+1. **Adding New Code Smells**: Create new bug scenarios
+2. **Improving Tests**: Enhance test coverage and quality
+3. **Documentation**: Improve explanations and examples
+4. **Bug Fixes**: Report and fix issues in exercises
+5. **New Exercises**: Add algorithmic challenges
+
+### Contribution Guidelines
+
+- Follow TypeScript strict mode
+- Write comprehensive tests
+- Document complex logic
+- Maintain code style consistency
+- Update README if adding major features
+
+## License
+
+MIT License
+
+Copyright (c) 2024 TypeScript Katas
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Resources
 
 - **TypeScript Handbook**: https://www.typescriptlang.org/docs/
-- **Jest Testing**: https://jestjs.io/docs/getting-started
+- **Jest Documentation**: https://jestjs.io/docs/getting-started
 - **Algorithm Practice**: https://leetcode.com, https://hackerrank.com
 - **System Design**: https://github.com/donnemartin/system-design-primer
+- **Clean Code**: https://github.com/ryanmcdermott/clean-code-javascript
 
-## 🎉 Success Metrics
+## Success Metrics
 
 After completing this program, you should be able to:
 
-- **Debug** any JavaScript/TypeScript code in under 10 minutes
-- **Write** comprehensive test suites for complex functions
-- **Solve** algorithmic problems with optimal time/space complexity
-- **Design** scalable systems and explain trade-offs
-- **Communicate** technical concepts clearly in collaborative environments
+- Debug any JavaScript/TypeScript code efficiently
+- Write comprehensive test suites for complex functions
+- Solve algorithmic problems with optimal time/space complexity
+- Design scalable systems and explain trade-offs
+- Communicate technical concepts clearly in collaborative environments
+- Identify and fix common code smells in production code
+- Handle async programming patterns correctly
+- Optimize code for performance and maintainability
 
 ---
 
-**Ready to master advanced TypeScript programming? Start with `npm run dev` and begin your journey to programming excellence!** 🚀
+**Ready to master advanced TypeScript programming? Start with `npm run dev` and begin your journey to programming excellence!**

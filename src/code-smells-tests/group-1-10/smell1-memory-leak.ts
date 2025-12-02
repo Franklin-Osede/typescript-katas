@@ -18,7 +18,7 @@ export class EventManager {
   }
 
   removeEventListener(event: string, callback: Function): void {
-    // TODO: Fix memory leak
+    
     // This doesn't actually remove the listener
     const eventListeners = this.listeners.get(event);
     if (eventListeners) {
@@ -50,3 +50,29 @@ export class EventManager {
  * 3. Test that listeners are actually removed
  * 4. Add memory usage monitoring
  */
+
+// ===== CÓDIGO DE PRUEBA PARA DEBUGGEAR =====
+// Descomenta las siguientes líneas para debuggear
+
+/*
+function testListener(data: any) {
+  console.log('Listener ejecutado:', data);
+}
+
+const eventManager = new EventManager();
+
+console.log('=== INICIANDO DEBUG ===');
+console.log('1. Añadiendo listener...');
+eventManager.addEventListener('test', testListener);
+
+console.log('2. Emitiendo evento...');
+eventManager.emit('test', { message: 'Primer mensaje' });
+
+console.log('3. Intentando remover listener...');
+eventManager.removeEventListener('test', testListener);
+
+console.log('4. Emitiendo evento después de "remover"...');
+eventManager.emit('test', { message: 'Segundo mensaje' });
+
+console.log('=== FIN DEL DEBUG ===');
+*/
